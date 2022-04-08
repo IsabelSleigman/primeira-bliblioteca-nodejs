@@ -1,9 +1,11 @@
-console.log('Vamos começar!')
+const chalk = require('chalk')
 
-const paragrafo = 'Texto retonado por uma função'
+console.log(chalk.blue('Vamos começar!'));
+
+const paragrafo = 'Texto retonado por uma função';
 
 function texto(string) {
     return string
 }
 
-console.log(texto(paragrafo))
+console.log(texto(paragrafo));
