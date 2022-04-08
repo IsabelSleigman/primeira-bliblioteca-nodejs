@@ -5,14 +5,35 @@ function handleError(error) {
     throw new Error(chalk.red(error.code, 'não há arquivo no caminho'))
 }
 
-function getFile(pathFile) {
-    const encoding = 'utf8'
-    fs.readFile(pathFile, encoding, (error, texto) => {
-        if (error) {
-            handleError(error)
-        }
+// async e await
+async function getFile(pathFile) {
+    try {
+        const encoding = 'utf8'
+        const texto = await fs.promises.readFile(pathFile, encoding)
         console.log(chalk.green(texto))
-    })
+    } catch (error) {
+        handleError(error)
+    }
 }
+
+
+// then é uma das formas de lidar com função async
+// function getFile(pathFile) {
+//     const encoding = 'utf8'
+//     fs.promises
+//         .readFile(pathFile, encoding)
+//         .then((texto) => console.log(chalk.green(texto)))
+//         .catch((erro) => handleError(erro))
+// }
+
+// function getFile(pathFile) {
+//     const encoding = 'utf8'
+//     fs.readFile(pathFile, encoding, (error, texto) => {
+//         if (error) {
+//             handleError(error)
+//         }
+//         console.log(chalk.green(texto))
+//     })
+// }
 
 getFile('./arquivos/texto1.md')
