@@ -9,3 +9,5 @@ function texto(string) {
 }
 
 console.log(texto(paragrafo));
+
+console.log(chalk.blue.bgWhite.bold('Alura'));
