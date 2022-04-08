@@ -13,11 +13,13 @@ async function getFile(pathFile) {
         console.log(chalk.green(texto))
     } catch (error) {
         handleError(error)
+    } finally {
+        console.log(chalk.yellow('operação concluída'));
     }
 }
 
 
-// then é uma das formas de lidar com função async
+// then é uma das formas de lidar com promisses
 // function getFile(pathFile) {
 //     const encoding = 'utf8'
 //     fs.promises
