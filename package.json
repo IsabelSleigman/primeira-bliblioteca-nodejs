@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/IsabelSleigman/primeira-bliblioteca-nodejs/issues"
   },
-  "homepage": "https://github.com/IsabelSleigman/primeira-bliblioteca-nodejs#readme"
+  "homepage": "https://github.com/IsabelSleigman/primeira-bliblioteca-nodejs#readme",
+  "dependencies": {
+    "chalk": "^4.1.2"
+  }
 }
