@@ -28,6 +28,9 @@ async function getFile(pathFile) {
     }
 }
 
+module.exports = getFile;
+
+//getFile('./arquivos/texto1.md')
 
 // then é uma das formas de lidar com promisses
 // function getFile(pathFile) {
@@ -47,5 +50,3 @@ async function getFile(pathFile) {
 //         console.log(chalk.green(texto))
 //     })
 // }
-
-getFile('./arquivos/texto1.md')
