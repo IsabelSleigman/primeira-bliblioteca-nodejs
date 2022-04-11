@@ -1,6 +1,18 @@
 const chalk = require('chalk')
 const fs = require('fs')
 
+function extraiLinks(texto) {
+    const regex = /\[([^\]]*)\]\(https?:\/\/[^$#\s].[^\s]*\)/gm;
+    //texto.match(regex);
+    const arrayResultados = [];
+    let temp;
+
+    while ((temp = regex.exec(texto)) !== null) {
+        arrayResultados.push({ [temp[1]]: temp[2] })
+    }
+    return arrayResultados;
+}
+
 function handleError(error) {
     throw new Error(chalk.red(error.code, 'não há arquivo no caminho'))
 }
@@ -10,7 +22,7 @@ async function getFile(pathFile) {
     try {
         const encoding = 'utf8'
         const texto = await fs.promises.readFile(pathFile, encoding)
-        console.log(chalk.green(texto))
+        console.log(extraiLinks(texto))
     } catch (error) {
         handleError(error)
     } finally {
