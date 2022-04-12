@@ -8,7 +8,7 @@ function extraiLinks(texto) {
     while ((temp = regex.exec(texto)) !== null) {
         arrayResultados.push({ [temp[1]]: temp[2] })
     }
-    return arrayResultados;
+    return arrayResultados.length === 0 ? 'Não há links!' : arrayResultados;
 }
 
 function handleError(error) {
@@ -20,11 +20,9 @@ async function getFile(pathFile) {
     try {
         const encoding = 'utf8'
         const texto = await fs.promises.readFile(pathFile, encoding)
-        console.log(extraiLinks(texto))
+        return extraiLinks(texto)
     } catch (error) {
         handleError(error)
-    } finally {
-        console.log(chalk.yellow('operação concluída'));
     }
 }
 
